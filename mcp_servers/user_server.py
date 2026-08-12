@@ -1,6 +1,7 @@
 # from mcp.server.fastmcp import FastMCP
 from fastmcp import FastMCP
 from agent.db import get_db_connection
+import re
 
 
 
@@ -114,6 +115,22 @@ def get_user_roles(user_id: int) -> dict:
 def update_user_email(user_id: int, email: str) -> dict:
     """Update a user's email address. This is a modification operation."""
 
+    email = email.strip()
+
+    # Remove Markdown mailto links if the model generates them
+    match = re.search(
+        r'(?:mailto:)?([A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,})',
+        email
+    )
+
+    if not match:
+        return {
+            "success": False,
+            "error": "Invalid email address"
+        }
+
+    email = match.group(1)
+
     connection = get_db_connection()
     cursor = connection.cursor()
 
@@ -151,7 +168,6 @@ def update_user_email(user_id: int, email: str) -> dict:
     finally:
         cursor.close()
         connection.close()
-
 
 @mcp.tool
 def change_user_role(user_id: int, role: str) -> dict:
