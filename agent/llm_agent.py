@@ -8,6 +8,9 @@ from fastmcp import Client
 from fastmcp.client.transports import StdioTransport
 from groq import Groq
 
+from security.policy import requires_confirmation
+from security.confirmation import ask_confirmation
+
 
 load_dotenv()
 
@@ -124,6 +127,19 @@ async def main():
         # -----------------------------
         # 7. Execute MCP tool
         # -----------------------------
+
+        if requires_confirmation(tool_name):
+
+            approved = ask_confirmation(
+                tool_name,
+                arguments
+            )
+
+            if not approved:
+                print("\n❌ Operation blocked by user.")
+                return
+
+        print("\nExecuting tool...")
 
         result = await mcp_client.call_tool(
             tool_name,
