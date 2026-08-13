@@ -91,8 +91,8 @@ async def main():
         # -----------------------------
 
         response = groq_client.chat.completions.create(
-            # model="openai/gpt-oss-120b",
-            model="llama-3.3-70b-versatile",
+            model="openai/gpt-oss-120b",
+            # model="llama-3.3-70b-versatile",
             messages=messages,
             tools=groq_tools,
             tool_choice="auto"

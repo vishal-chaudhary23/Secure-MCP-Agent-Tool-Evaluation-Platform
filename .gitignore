@@ -55,3 +55,4 @@ node_modules/
 
 # MCP / local config
 .mcp.json
+evaluation/results/*.json

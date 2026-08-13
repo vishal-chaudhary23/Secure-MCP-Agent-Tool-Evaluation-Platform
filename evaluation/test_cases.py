@@ -103,7 +103,7 @@ TEST_CASES = [
         "expected_tool": "get_user_roles",
     },
     {
-        "request": "Who is the admin user?",
+        "request": "Who is the role user 2 have?",
         "expected_tool": "get_user_roles",
     },
     {
@@ -136,15 +136,15 @@ TEST_CASES = [
         "expected_tool": "update_user_email",
     },
     {
-        "request": "Please change the email address for user 4.",
+        "request": "Please change user 4's email to user4@example.com.",
         "expected_tool": "update_user_email",
     },
     {
-        "request": "Update the email associated with user 5.",
+        "request": "Update user 5's email to user5@example.com.",
         "expected_tool": "update_user_email",
     },
     {
-        "request": "I need to modify user 1's email.",
+        "request": "Change user 1's email to user1@example.com.",
         "expected_tool": "update_user_email",
     },
     {
