@@ -1,9 +1,5 @@
 
----
 
-## 3. Add this to your README
-
-Under your project description, add a section:
 
 ```markdown
 ## Evaluation
