@@ -866,10 +866,6 @@ B.Tech — Information Technology
 
 https://github.com/vishal-chaudhary23
 
-### LinkedIn
-
-https://www.linkedin.com/in/vishal-chaudhary-8996a236/
-
 ---
 
 # ⭐ Project Summary
